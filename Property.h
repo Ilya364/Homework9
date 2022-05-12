@@ -1,24 +1,18 @@
 #pragma once
 class Property
 {
+	double worth;
 public:
-	Property();
+	Property():worth(0){}
 
-	Property(double worth)
-	{
-		this->worth = worth;
-	}
+	Property(double worth):worth(worth){}
 
 	double GetWorth()
 	{
 		return this->worth;
 	}
 
-	~Property() {};
-
 	virtual double TaxCalculation() = 0;
-private:
-	double worth;
 };
 
 class Apartment:public Property
@@ -31,8 +25,6 @@ public:
 
 	Apartment(double worth) :
 		Property(worth){}
-
-	~Apartment();
 };
 
 class Car :public Property
@@ -45,8 +37,6 @@ public:
 
 	Car(double worth) :
 		Property(worth){}
-
-	~Car();
 };
 
 class CountryHouse :public Property
@@ -59,7 +49,5 @@ public:
 
 	CountryHouse(double worth) :
 		Property(worth) {}
-
-	~CountryHouse() {};
 };
 
